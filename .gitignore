@@ -1,4 +1,4 @@
-trained-models/
+trained-models/*
 venv
 env
 .DS_Store
