@@ -267,8 +267,8 @@ class Model(nn.Module):
         model = torchvision.models.resnext50_32x4d(pretrained=True)
         self.model = nn.Sequential(*list(model.children())[:-2])
         
-        # LSTM layer
-        self.lstm = nn.LSTM(latent_dim, hidden_dim, lstm_layers, bidirectional=bidirectional)
+        # LSTM layer (without bias to match saved models)
+        self.lstm = nn.LSTM(latent_dim, hidden_dim, lstm_layers, bidirectional=bidirectional, bias=False)
         
         # Activation and dropout
         self.relu = nn.LeakyReLU()
