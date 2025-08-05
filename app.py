@@ -259,31 +259,25 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# Model definition (enhanced)
-class AdvancedModel(nn.Module):
-    def __init__(self, num_classes, latent_dim=1792, lstm_layers=2, hidden_dim=1792, bidirectional=True):
-        super(AdvancedModel, self).__init__()
-        # Use a more advanced backbone
-        model = torchvision.models.efficientnet_b4(pretrained=True)
-        self.backbone = nn.Sequential(*list(model.children())[:-2])
+# Model definition (matching the trained models)
+class Model(nn.Module):
+    def __init__(self, num_classes, latent_dim=2048, lstm_layers=1, hidden_dim=2048, bidirectional=False):
+        super(Model, self).__init__()
+        # Use ResNeXt50 as backbone (matching the trained models)
+        model = torchvision.models.resnext50_32x4d(pretrained=True)
+        self.model = nn.Sequential(*list(model.children())[:-2])
         
-        # Enhanced LSTM with attention
-        self.lstm = nn.LSTM(latent_dim, hidden_dim, lstm_layers, bidirectional=bidirectional, dropout=0.3)
+        # LSTM layer
+        self.lstm = nn.LSTM(latent_dim, hidden_dim, lstm_layers, bidirectional=bidirectional)
         
-        # Attention mechanism
-        self.attention = nn.MultiheadAttention(hidden_dim * (2 if bidirectional else 1), num_heads=8)
+        # Activation and dropout
+        self.relu = nn.LeakyReLU()
+        self.dp = nn.Dropout(0.4)
         
-        # Enhanced classifier
-        self.classifier = nn.Sequential(
-            nn.Linear(hidden_dim * (2 if bidirectional else 1), 512),
-            nn.ReLU(),
-            nn.Dropout(0.5),
-            nn.Linear(512, 128),
-            nn.ReLU(),
-            nn.Dropout(0.3),
-            nn.Linear(128, num_classes)
-        )
+        # Classifier
+        self.linear1 = nn.Linear(2048, num_classes)
         
+        # Pooling
         self.avgpool = nn.AdaptiveAvgPool2d(1)
         
     def forward(self, x):
@@ -291,25 +285,19 @@ class AdvancedModel(nn.Module):
         x = x.view(batch_size * seq_length, c, h, w)
         
         # Extract features
-        features = self.backbone(x)
-        pooled_features = self.avgpool(features)
-        x = pooled_features.view(batch_size, seq_length, -1)
+        fmap = self.model(x)
+        
+        # Global average pooling
+        x = self.avgpool(fmap)
+        x = x.view(batch_size, seq_length, 2048)
         
         # LSTM processing
-        lstm_out, _ = self.lstm(x)
-        
-        # Attention mechanism
-        lstm_out = lstm_out.permute(1, 0, 2)  # (seq_len, batch, hidden)
-        attended_out, attention_weights = self.attention(lstm_out, lstm_out, lstm_out)
-        attended_out = attended_out.permute(1, 0, 2)  # (batch, seq_len, hidden)
-        
-        # Use the last output for classification
-        final_features = attended_out[:, -1, :]
+        x_lstm, _ = self.lstm(x, None)
         
         # Classification
-        logits = self.classifier(final_features)
+        logits = self.dp(self.linear1(x_lstm[:, -1, :]))
         
-        return features, logits, attention_weights
+        return fmap, logits
 
 # Enhanced dataset with more features
 class AdvancedValidationDataset(Dataset):
@@ -384,7 +372,7 @@ class AdvancedValidationDataset(Dataset):
 def advanced_predict(model, frames, device):
     model.eval()
     with torch.no_grad():
-        features, logits, attention_weights = model(frames.to(device))
+        fmap, logits = model(frames.to(device))
         
         # Softmax for probabilities
         probabilities = torch.softmax(logits, dim=1)
@@ -401,8 +389,7 @@ def advanced_predict(model, frames, device):
             'confidence': prediction_strength * 100,
             'probabilities': probabilities.cpu().numpy(),
             'entropy': entropy.item(),
-            'attention_weights': attention_weights.cpu().numpy(),
-            'features': features.cpu().numpy()
+            'features': fmap.cpu().numpy()
         }
 
 # Report generation functions
@@ -483,16 +470,18 @@ def create_visualization_plots(prediction_results, frame_metadata):
         )
         plots['frame_analysis'] = fig_frame_analysis
     
-    # Attention weights visualization
-    if 'attention_weights' in prediction_results:
-        attention = prediction_results['attention_weights'][0, 0, :, :]  # First head
-        fig_attention = px.imshow(
-            attention, 
-            title='Attention Weights Heatmap',
-            labels=dict(x="Frame Position", y="Attention Position"),
+    # Feature map visualization (replacing attention weights)
+    if 'features' in prediction_results:
+        features = prediction_results['features'][0]  # First batch
+        # Take the mean across channels for visualization
+        feature_map = np.mean(features, axis=0)
+        fig_features = px.imshow(
+            feature_map, 
+            title='Feature Map Visualization',
+            labels=dict(x="Width", y="Height"),
             color_continuous_scale='Viridis'
         )
-        plots['attention_heatmap'] = fig_attention
+        plots['feature_map'] = fig_features
     
     return plots
 
@@ -603,7 +592,7 @@ def show_single_analysis():
                 try:
                     # Initialize model
                     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-                    model = AdvancedModel(2).to(device)
+                    model = Model(2).to(device)
                     model_path = os.path.join("trained-models", model_choice)
                     model.load_state_dict(torch.load(model_path, map_location=device))
                     
@@ -679,14 +668,14 @@ def show_single_analysis():
                     if 'frame_analysis' in plots:
                         st.plotly_chart(plots['frame_analysis'], use_container_width=True)
                     
-                    # Attention heatmap
-                    if 'attention_heatmap' in plots:
-                        st.plotly_chart(plots['attention_heatmap'], use_container_width=True)
+                    # Feature map visualization
+                    if 'feature_map' in plots:
+                        st.plotly_chart(plots['feature_map'], use_container_width=True)
                     
                     # Generate report
                     model_info = {
                         'name': model_choice,
-                        'architecture': 'AdvancedModel',
+                        'architecture': 'Model',
                         'sequence_length': sequence_length,
                         'face_detection': face_detection
                     }
@@ -732,7 +721,7 @@ def show_batch_processing():
         if st.button("🚀 Start Batch Processing", type="primary"):
             # Initialize model once
             device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-            model = AdvancedModel(2).to(device)
+            model = Model(2).to(device)
             model_path = os.path.join("trained-models", model_choice)
             model.load_state_dict(torch.load(model_path, map_location=device))
             

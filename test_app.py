@@ -55,23 +55,22 @@ def test_model_creation():
     print("\nTesting model creation...")
     
     try:
-        from app import AdvancedModel
+        from app import Model
         
         # Create model
-        model = AdvancedModel(num_classes=2)
-        print("✅ AdvancedModel created successfully")
+        model = Model(num_classes=2)
+        print("✅ Model created successfully")
         
         # Test forward pass with dummy data
         batch_size, seq_length, channels, height, width = 1, 10, 3, 224, 224
         dummy_input = torch.randn(batch_size, seq_length, channels, height, width)
         
         with torch.no_grad():
-            features, logits, attention_weights = model(dummy_input)
+            fmap, logits = model(dummy_input)
         
         print(f"✅ Model forward pass successful")
-        print(f"   - Features shape: {features.shape}")
+        print(f"   - Feature map shape: {fmap.shape}")
         print(f"   - Logits shape: {logits.shape}")
-        print(f"   - Attention weights shape: {attention_weights.shape}")
         
         return True
         
@@ -136,10 +135,10 @@ def test_prediction_function():
     print("\nTesting prediction function...")
     
     try:
-        from app import advanced_predict, AdvancedModel
+        from app import advanced_predict, Model
         
         # Create model and dummy data
-        model = AdvancedModel(num_classes=2)
+        model = Model(num_classes=2)
         batch_size, seq_length, channels, height, width = 1, 10, 3, 224, 224
         dummy_frames = torch.randn(batch_size, seq_length, channels, height, width)
         
@@ -171,7 +170,7 @@ def test_visualization_functions():
             'confidence': 85.5,
             'probabilities': np.array([[0.15, 0.85]]),
             'entropy': 0.3,
-            'attention_weights': np.random.rand(1, 8, 10, 10)
+            'features': np.random.rand(1, 2048, 7, 7)
         }
         
         # Create dummy metadata
