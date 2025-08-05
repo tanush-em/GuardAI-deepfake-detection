@@ -37,55 +37,76 @@ st.set_page_config(
     }
 )
 
-# Custom CSS for advanced styling
+# Custom CSS for dark theme styling
 st.markdown("""
     <style>
-        /* Force light theme for better visibility */
+        /* Dark theme background */
         .stApp {
-            background-color: #f0f2f6;
+            background-color: #0e1117;
         }
         
-        /* Ensure all text is visible */
+        /* Ensure all text is visible on dark background */
         .stMarkdown, .stText, .stWrite {
-            color: #333333 !important;
+            color: #fafafa !important;
         }
         
-        /* Override any dark theme text */
+        /* Override any light theme text */
         .stMarkdown p, .stMarkdown div, .stMarkdown span, .stMarkdown h1, .stMarkdown h2, .stMarkdown h3, .stMarkdown h4, .stMarkdown h5, .stMarkdown h6 {
-            color: #333333 !important;
+            color: #fafafa !important;
         }
         
         /* Sidebar text */
         .css-1d391kg, .css-1lcbmhc {
-            color: #333333 !important;
+            color: #fafafa !important;
         }
         
         /* Main content area */
         .main .block-container {
-            background-color: #f0f2f6;
-            color: #333333 !important;
+            background-color: #0e1117;
+            color: #fafafa !important;
         }
         
         /* Metric displays */
         .stMetric {
-            color: #333333 !important;
+            color: #fafafa !important;
         }
         
         .stMetric > div > div > div {
-            color: #333333 !important;
+            color: #fafafa !important;
         }
         
         /* Success and error messages */
         .stSuccess {
-            color: #28a745 !important;
+            color: #4ade80 !important;
         }
         
         .stError {
-            color: #dc3545 !important;
+            color: #f87171 !important;
         }
         
         .stWarning {
-            color: #ffc107 !important;
+            color: #fbbf24 !important;
+        }
+        
+        /* Dark theme for Streamlit components */
+        .stSelectbox, .stTextInput, .stTextArea, .stNumberInput {
+            background-color: #262730 !important;
+            color: #fafafa !important;
+        }
+        
+        /* File uploader styling */
+        .stFileUploader {
+            background-color: #262730 !important;
+        }
+        
+        /* Button styling */
+        .stButton > button {
+            background-color: #667eea !important;
+            color: white !important;
+        }
+        
+        .stButton > button:hover {
+            background-color: #5a67d8 !important;
         }
     </style>
 """, unsafe_allow_html=True)
@@ -102,18 +123,18 @@ st.markdown("""
         margin-bottom: 2rem;
     }
     
-    /* Metric cards styling */
+    /* Metric cards styling - Dark theme */
     .metric-card {
-        background: white;
+        background: #262730;
         padding: 1.5rem;
         border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         border-left: 4px solid #667eea;
-        color: #333333;
+        color: #fafafa;
     }
     
     .metric-card h3 {
-        color: #333333 !important;
+        color: #fafafa !important;
         font-size: 1.1rem;
         margin-bottom: 0.5rem;
     }
@@ -126,28 +147,29 @@ st.markdown("""
     }
     
     .metric-card p {
-        color: #666666 !important;
+        color: #d1d5db !important;
         font-size: 0.9rem;
         margin: 0;
     }
     
-    /* Feature cards styling */
+    /* Feature cards styling - Dark theme */
     .feature-card {
-        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        background: linear-gradient(135deg, #374151 0%, #1f2937 100%);
         padding: 1.5rem;
         border-radius: 10px;
         margin: 1rem 0;
-        color: #333333;
+        color: #fafafa;
+        border: 1px solid #4b5563;
     }
     
     .feature-card h4 {
-        color: #333333 !important;
+        color: #fafafa !important;
         font-size: 1.2rem;
         margin-bottom: 0.5rem;
     }
     
     .feature-card p {
-        color: #555555 !important;
+        color: #d1d5db !important;
         font-size: 0.95rem;
         margin: 0;
     }
@@ -157,60 +179,82 @@ st.markdown("""
         background-color: #667eea;
     }
     
-    /* Report section styling */
+    /* Report section styling - Dark theme */
     .report-section {
-        background: #f8f9fa;
+        background: #262730;
         padding: 1rem;
         border-radius: 8px;
         margin: 1rem 0;
-        color: #333333;
+        color: #fafafa;
+        border: 1px solid #4b5563;
     }
     
-    /* General text color fixes */
+    /* General text color fixes - Dark theme */
     .stMarkdown, .stText {
-        color: #333333 !important;
+        color: #fafafa !important;
     }
     
-    /* Streamlit default text color override */
+    /* Streamlit default text color override - Dark theme */
     .stMarkdown p, .stMarkdown div, .stMarkdown span {
-        color: #333333 !important;
+        color: #fafafa !important;
     }
     
-    /* Sidebar text color */
+    /* Sidebar text color - Dark theme */
     .css-1d391kg {
-        color: #333333 !important;
+        color: #fafafa !important;
     }
     
-    /* Main content area */
+    /* Main content area - Dark theme */
     .main .block-container {
-        color: #333333 !important;
+        color: #fafafa !important;
     }
     
-    /* Override Streamlit's default dark text */
+    /* Override Streamlit's default light text - Dark theme */
     .stMarkdown h1, .stMarkdown h2, .stMarkdown h3, .stMarkdown h4, .stMarkdown h5, .stMarkdown h6 {
-        color: #333333 !important;
+        color: #fafafa !important;
     }
     
-    /* Metric display fixes */
+    /* Metric display fixes - Dark theme */
     .stMetric {
-        color: #333333 !important;
+        color: #fafafa !important;
     }
     
     .stMetric > div > div > div {
-        color: #333333 !important;
+        color: #fafafa !important;
     }
     
-    /* Success and error messages */
+    /* Success and error messages - Dark theme */
     .stSuccess {
-        color: #28a745 !important;
+        color: #4ade80 !important;
     }
     
     .stError {
-        color: #dc3545 !important;
+        color: #f87171 !important;
     }
     
     .stWarning {
-        color: #ffc107 !important;
+        color: #fbbf24 !important;
+    }
+    
+    /* Additional dark theme styling */
+    .stDataFrame {
+        background-color: #262730 !important;
+        color: #fafafa !important;
+    }
+    
+    .stPlotlyChart {
+        background-color: #262730 !important;
+    }
+    
+    /* Sidebar dark theme */
+    .css-1d391kg {
+        background-color: #0e1117 !important;
+    }
+    
+    /* File uploader area */
+    .stFileUploader > div {
+        background-color: #262730 !important;
+        border: 1px solid #4b5563 !important;
     }
 </style>
 """, unsafe_allow_html=True)
