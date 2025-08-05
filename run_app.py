@@ -13,17 +13,26 @@ def check_dependencies():
     """Check if all required dependencies are installed"""
     print("🔍 Checking dependencies...")
     
-    required_packages = [
-        'streamlit', 'torch', 'torchvision', 'opencv-python',
-        'face_recognition', 'numpy', 'pandas', 'plotly',
-        'matplotlib', 'seaborn', 'pillow'
-    ]
+    # Define package names and their import names
+    package_imports = {
+        'streamlit': 'streamlit',
+        'torch': 'torch',
+        'torchvision': 'torchvision',
+        'opencv-python': 'cv2',
+        'face_recognition': 'face_recognition',
+        'numpy': 'numpy',
+        'pandas': 'pandas',
+        'plotly': 'plotly',
+        'matplotlib': 'matplotlib',
+        'seaborn': 'seaborn',
+        'pillow': 'PIL'
+    }
     
     missing_packages = []
     
-    for package in required_packages:
+    for package, import_name in package_imports.items():
         try:
-            __import__(package.replace('-', '_'))
+            __import__(import_name)
             print(f"✅ {package}")
         except ImportError:
             print(f"❌ {package} - Missing")
