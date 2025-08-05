@@ -29,12 +29,70 @@ st.set_page_config(
     page_title="GuardAI - Advanced Deepfake Detection",
     page_icon="🛡️",
     layout="wide",
-    initial_sidebar_state="expanded"
+    initial_sidebar_state="expanded",
+    menu_items={
+        'Get Help': 'https://github.com/your-username/GuardAI-deepfake-detection',
+        'Report a bug': 'https://github.com/your-username/GuardAI-deepfake-detection/issues',
+        'About': 'GuardAI Advanced Deepfake Detection v2.0.0'
+    }
 )
 
 # Custom CSS for advanced styling
 st.markdown("""
+    <style>
+        /* Force light theme for better visibility */
+        .stApp {
+            background-color: #f0f2f6;
+        }
+        
+        /* Ensure all text is visible */
+        .stMarkdown, .stText, .stWrite {
+            color: #333333 !important;
+        }
+        
+        /* Override any dark theme text */
+        .stMarkdown p, .stMarkdown div, .stMarkdown span, .stMarkdown h1, .stMarkdown h2, .stMarkdown h3, .stMarkdown h4, .stMarkdown h5, .stMarkdown h6 {
+            color: #333333 !important;
+        }
+        
+        /* Sidebar text */
+        .css-1d391kg, .css-1lcbmhc {
+            color: #333333 !important;
+        }
+        
+        /* Main content area */
+        .main .block-container {
+            background-color: #f0f2f6;
+            color: #333333 !important;
+        }
+        
+        /* Metric displays */
+        .stMetric {
+            color: #333333 !important;
+        }
+        
+        .stMetric > div > div > div {
+            color: #333333 !important;
+        }
+        
+        /* Success and error messages */
+        .stSuccess {
+            color: #28a745 !important;
+        }
+        
+        .stError {
+            color: #dc3545 !important;
+        }
+        
+        .stWarning {
+            color: #ffc107 !important;
+        }
+    </style>
+""", unsafe_allow_html=True)
+
+st.markdown("""
 <style>
+    /* Main header styling */
     .main-header {
         background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
         padding: 2rem;
@@ -43,27 +101,116 @@ st.markdown("""
         text-align: center;
         margin-bottom: 2rem;
     }
+    
+    /* Metric cards styling */
     .metric-card {
         background: white;
         padding: 1.5rem;
         border-radius: 10px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         border-left: 4px solid #667eea;
+        color: #333333;
     }
+    
+    .metric-card h3 {
+        color: #333333 !important;
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .metric-card h2 {
+        color: #667eea !important;
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+    }
+    
+    .metric-card p {
+        color: #666666 !important;
+        font-size: 0.9rem;
+        margin: 0;
+    }
+    
+    /* Feature cards styling */
     .feature-card {
         background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
         padding: 1.5rem;
         border-radius: 10px;
         margin: 1rem 0;
+        color: #333333;
     }
+    
+    .feature-card h4 {
+        color: #333333 !important;
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .feature-card p {
+        color: #555555 !important;
+        font-size: 0.95rem;
+        margin: 0;
+    }
+    
+    /* Progress bar styling */
     .stProgress > div > div > div > div {
         background-color: #667eea;
     }
+    
+    /* Report section styling */
     .report-section {
         background: #f8f9fa;
         padding: 1rem;
         border-radius: 8px;
         margin: 1rem 0;
+        color: #333333;
+    }
+    
+    /* General text color fixes */
+    .stMarkdown, .stText {
+        color: #333333 !important;
+    }
+    
+    /* Streamlit default text color override */
+    .stMarkdown p, .stMarkdown div, .stMarkdown span {
+        color: #333333 !important;
+    }
+    
+    /* Sidebar text color */
+    .css-1d391kg {
+        color: #333333 !important;
+    }
+    
+    /* Main content area */
+    .main .block-container {
+        color: #333333 !important;
+    }
+    
+    /* Override Streamlit's default dark text */
+    .stMarkdown h1, .stMarkdown h2, .stMarkdown h3, .stMarkdown h4, .stMarkdown h5, .stMarkdown h6 {
+        color: #333333 !important;
+    }
+    
+    /* Metric display fixes */
+    .stMetric {
+        color: #333333 !important;
+    }
+    
+    .stMetric > div > div > div {
+        color: #333333 !important;
+    }
+    
+    /* Success and error messages */
+    .stSuccess {
+        color: #28a745 !important;
+    }
+    
+    .stError {
+        color: #dc3545 !important;
+    }
+    
+    .stWarning {
+        color: #ffc107 !important;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -346,7 +493,7 @@ def show_home_page():
         st.markdown('<div class="metric-card"><h3>🛡️ Security</h3><h2>99.8%</h2><p>False Positive Rate</p></div>', unsafe_allow_html=True)
     
     # Features overview
-    st.subheader("🚀 Advanced Features")
+    st.markdown("## 🚀 Advanced Features")
     
     col1, col2 = st.columns(2)
     
