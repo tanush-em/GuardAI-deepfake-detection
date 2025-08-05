@@ -70,7 +70,7 @@ st.markdown("""
 
 # Model definition (enhanced)
 class AdvancedModel(nn.Module):
-    def __init__(self, num_classes, latent_dim=2048, lstm_layers=2, hidden_dim=2048, bidirectional=True):
+    def __init__(self, num_classes, latent_dim=1792, lstm_layers=2, hidden_dim=1792, bidirectional=True):
         super(AdvancedModel, self).__init__()
         # Use a more advanced backbone
         model = torchvision.models.efficientnet_b4(pretrained=True)
