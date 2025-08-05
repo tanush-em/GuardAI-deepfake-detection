@@ -650,18 +650,53 @@ def show_single_analysis():
     
     # Model selection with advanced options
     st.subheader("Model Configuration")
+    
+    st.markdown("""
+    ### ⚙️ Analysis Parameters
+    
+    **Model Selection**: Choose the AI model that best fits your analysis needs. Different models are trained on different datasets and may perform better for specific types of videos.
+    
+    **Analysis Settings**: Configure how the system processes your video for optimal results.
+    """)
+    
     col1, col2 = st.columns(2)
     
     with col1:
         model_files = glob.glob(os.path.join("trained-models", "*.pt"))
         model_names = [os.path.basename(f) for f in model_files]
-        model_choice = st.selectbox("Select Model", model_names)
+        model_choice = st.selectbox("Select Model", model_names, help="Choose the AI model for analysis. Models with higher accuracy percentages generally provide more reliable results.")
         
-        sequence_length = st.slider("Sequence Length", 10, 50, 30, help="Number of frames to analyze")
+        sequence_length = st.slider("Sequence Length", 10, 50, 30, help="Number of frames to analyze. Higher values provide more comprehensive analysis but take longer to process.")
         
     with col2:
-        face_detection = st.checkbox("Enable Face Detection", value=True, help="Crop frames to detected faces")
-        confidence_threshold = st.slider("Confidence Threshold", 0.0, 1.0, 0.7, 0.05, help="Minimum confidence for prediction")
+        face_detection = st.checkbox("Enable Face Detection", value=True, help="Automatically detect and crop faces in each frame. This improves accuracy by focusing analysis on facial regions.")
+        confidence_threshold = st.slider("Confidence Threshold", 0.0, 1.0, 0.7, 0.05, help="Minimum confidence level required for a reliable prediction. Higher thresholds are more strict but may miss some detections.")
+    
+    # Parameter explanations
+    st.markdown("""
+    ### 📋 Parameter Explanations
+    
+    **Model Types:**
+    - **High Accuracy Models (90%+)**: Best for critical applications, slower processing
+    - **Balanced Models (80-90%)**: Good accuracy with reasonable speed
+    - **Fast Models (<80%)**: Quick analysis, suitable for preliminary screening
+    
+    **Sequence Length Impact:**
+    - **10-20 frames**: Fast analysis, good for short videos
+    - **20-30 frames**: Balanced speed and accuracy (recommended)
+    - **30-50 frames**: Maximum accuracy, best for detailed analysis
+    
+    **Face Detection Benefits:**
+    - ✅ Improves accuracy by focusing on relevant areas
+    - ✅ Reduces false positives from background elements
+    - ✅ Handles videos with multiple people (analyzes primary face)
+    - ⚠️ May fail if faces are not clearly visible
+    
+    **Confidence Threshold Guidelines:**
+    - **0.5-0.6**: More sensitive, catches more potential deepfakes
+    - **0.7-0.8**: Balanced approach (recommended)
+    - **0.8-0.9**: Very strict, only high-confidence detections
+    """)
     
     # Video upload with preview
     st.subheader("Video Upload")
