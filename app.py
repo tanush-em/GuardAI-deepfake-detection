@@ -499,7 +499,7 @@ def main():
     st.sidebar.title("🛡️ GuardAI Navigation")
     page = st.sidebar.selectbox(
         "Choose a page",
-        ["🏠 Home", "🎥 Single Video Analysis", "🔍 Fake Region Annotator", "📁 Batch Processing", "📊 Analytics Dashboard", "📋 Reports", "⚙️ Settings"]
+        ["🏠 Home", "🎥 Single Video Analysis", "🔍 Fake Region Annotator", "📊 Analytics Dashboard", "📋 Reports", "⚙️ Settings"]
     )
     
     if page == "🏠 Home":
@@ -508,8 +508,6 @@ def main():
         show_single_analysis()
     elif page == "🔍 Fake Region Annotator":
         show_fake_region_annotator()
-    elif page == "📁 Batch Processing":
-        show_batch_processing()
     elif page == "📊 Analytics Dashboard":
         show_analytics_dashboard()
     elif page == "📋 Reports":
@@ -1651,24 +1649,28 @@ def show_fake_region_annotator():
                     all_artifact_analyses = []
                     annotated_frames = []
                     
+                    # For demo purposes, let's use a more realistic fake probability distribution
+                    # In a real implementation, you would run each frame through the model
+                    base_fake_probabilities = [0.3, 0.7, 0.2, 0.8, 0.4, 0.6, 0.1, 0.9, 0.5, 0.3]
+                    
                     for i, frame in enumerate(frames):
                         # Detect face landmarks
                         face_landmarks = face_recognition.face_landmarks(frame)
                         
                         if face_landmarks:
-                            # Get fake probability from model prediction
-                            # For this demo, we'll use a combination of frame characteristics and a base probability
-                            # In a real implementation, you would run the frame through the model
+                            # Get fake probability - use a realistic distribution for demo
+                            # In practice, this would come from the actual model prediction
                             frame_brightness = np.mean(frame)
                             frame_contrast = np.std(frame)
                             
-                            # Calculate a fake probability based on frame characteristics
-                            # This is a simplified approach - in practice, you'd use the actual model prediction
-                            base_probability = 0.4  # Base probability for demo
+                            # Use a base probability from our demo distribution
+                            base_probability = base_fake_probabilities[i % len(base_fake_probabilities)]
+                            
+                            # Add some variation based on frame characteristics
                             brightness_factor = (frame_brightness - 100) / 100  # Normalize brightness
                             contrast_factor = (frame_contrast - 50) / 50  # Normalize contrast
                             
-                            fake_probability = base_probability + (brightness_factor + contrast_factor) * 0.1
+                            fake_probability = base_probability + (brightness_factor + contrast_factor) * 0.05
                             fake_probability = max(0.1, min(0.9, fake_probability))  # Clamp between 0.1 and 0.9
                             
                             # Detect fake regions
