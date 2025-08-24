@@ -88,8 +88,7 @@ SECURITY_CONFIG = {
 PERFORMANCE_CONFIG = {
     'enable_gpu_acceleration': True,
     'max_memory_usage_gb': 8,
-    'enable_batch_processing': True,
-    'max_batch_size': 10,
+
     'enable_caching': True,
     'cache_duration_hours': 24,
     'enable_parallel_processing': True,
@@ -211,7 +210,7 @@ FEATURE_FLAGS = {
     'enable_real_time_analysis': False,
     'enable_advanced_visualizations': True,
     'enable_model_comparison': True,
-    'enable_batch_processing': True,
+
     'enable_pdf_reports': True,
     'enable_session_management': True,
     'enable_performance_monitoring': True,
@@ -250,7 +249,7 @@ ERROR_MESSAGES = {
 SUCCESS_MESSAGES = {
     'analysis_complete': 'Video analysis completed successfully!',
     'report_generated': 'Report generated and saved successfully!',
-    'batch_complete': 'Batch processing completed successfully!',
+
     'model_loaded': 'Model loaded successfully!',
     'settings_saved': 'Settings saved successfully!',
     'session_saved': 'Analysis session saved successfully!'

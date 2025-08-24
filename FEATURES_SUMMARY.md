@@ -13,7 +13,7 @@
 - **Multi-page Navigation**: 6 distinct pages with sidebar navigation
   - 🏠 Home Dashboard
   - 🎥 Single Video Analysis
-  - 📁 Batch Processing
+  
   - 📊 Analytics Dashboard
   - 📋 Reports Management
   - ⚙️ Settings Configuration
@@ -29,12 +29,7 @@
 - **Probability Distributions**: Bar charts showing prediction probabilities
 - **Performance Metrics**: Comprehensive statistics and trend analysis
 
-### 4. **Batch Processing System**
-- **Multi-file Upload**: Process multiple videos simultaneously
-- **Progress Tracking**: Real-time progress bars and status updates
-- **Results Summary**: Comprehensive results table with statistics
-- **CSV Export**: Download batch results in spreadsheet format
-- **Error Handling**: Robust error handling for individual file failures
+
 
 ### 5. **Comprehensive Report Generation**
 - **Multiple Formats**: JSON, PDF, and HTML report generation
@@ -103,7 +98,7 @@
 - Confidence scoring with uncertainty quantification
 - Attention mechanism visualization
 - Multi-model comparison
-- Batch processing capabilities
+
 
 ### 📈 Analytics Features
 - Comprehensive performance metrics
@@ -143,7 +138,7 @@
 
 ### Advanced Usage
 1. **Use Startup Script**: `python run_app.py --port 8501`
-2. **Batch Processing**: Upload multiple videos for bulk analysis
+
 3. **Generate Reports**: Create detailed PDF reports with visualizations
 4. **Analytics Dashboard**: Monitor performance and trends
 5. **Configuration**: Customize settings for your environment
@@ -177,7 +172,7 @@ GuardAI-deepfake-detection/
 | Model Architecture | Basic ResNeXt | EfficientNet-B4 + Attention |
 | UI Pages | 1 | 6 |
 | Visualizations | Basic | Advanced Interactive |
-| Batch Processing | ❌ | ✅ |
+
 | Report Generation | Basic | Comprehensive |
 | Configuration | Hard-coded | Environment-based |
 | Testing | ❌ | Comprehensive |

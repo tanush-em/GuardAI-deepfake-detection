@@ -7,7 +7,6 @@ A comprehensive deepfake detection system with advanced forensics capabilities, 
 ### Core Detection
 - **Real-time Video Analysis**: Process videos with live confidence updates
 - **Multiple Model Support**: Choose from various pre-trained models
-- **Batch Processing**: Analyze multiple videos simultaneously
 - **Advanced Analytics**: Comprehensive visualizations and metrics
 
 ### 🔍 Fake Region Annotator (NEW!)
@@ -68,11 +67,7 @@ A comprehensive deepfake detection system with advanced forensics capabilities, 
 3. Upload video for detailed region analysis
 4. Review annotated frames, heatmaps, and reports
 
-### Batch Processing
-1. Navigate to "📁 Batch Processing"
-2. Upload multiple video files
-3. Select analysis model
-4. Process all videos simultaneously
+
 
 ## 🔬 Technical Details
 
@@ -97,8 +92,8 @@ A comprehensive deepfake detection system with advanced forensics capabilities, 
 
 - **Accuracy**: Up to 97% on benchmark datasets
 - **Speed**: ~2-5 seconds per frame for region analysis
-- **Memory**: Moderate usage with configurable batch sizes
-- **Scalability**: Supports batch processing and multiple models
+- **Memory**: Moderate usage with configurable parameters
+- **Scalability**: Supports multiple models and real-time processing
 
 ## 📁 Project Structure
 

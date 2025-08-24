@@ -543,7 +543,7 @@ def show_home_page():
         
         st.markdown('<div class="feature-card"><h4>📊 Advanced Analytics</h4><p>Comprehensive visualizations including attention maps, frame analysis, and confidence distributions</p></div>', unsafe_allow_html=True)
         
-        st.markdown('<div class="feature-card"><h4>📁 Batch Processing</h4><p>Process multiple videos simultaneously with progress tracking and detailed reporting</p></div>', unsafe_allow_html=True)
+
     
     with col2:
         st.markdown('<div class="feature-card"><h4>📋 Detailed Reports</h4><p>Generate comprehensive PDF reports with analysis results, visualizations, and recommendations</p></div>', unsafe_allow_html=True)
@@ -651,8 +651,7 @@ def show_home_page():
     2. **Ensure good lighting** for consistent analysis
     3. **Choose appropriate models** based on your use case
     4. **Review confidence levels** before making decisions
-    5. **Use batch processing** for multiple videos
-    6. **Download reports** for detailed documentation
+    5. **Download reports** for detailed documentation
     """)
 
 def show_single_analysis():
@@ -1092,200 +1091,7 @@ def show_single_analysis():
                     st.error(f"❌ Error during analysis: {str(e)}")
                     st.exception(e)
 
-def show_batch_processing():
-    st.title("📁 Batch Processing")
-    
-    # Batch upload
-    uploaded_files = st.file_uploader(
-        "Upload Multiple Video Files", 
-        type=["mp4", "avi", "mov", "mkv"],
-        accept_multiple_files=True
-    )
-    
-    if uploaded_files:
-        st.write(f"📁 {len(uploaded_files)} files uploaded")
-        
-        # Model selection
-        model_files = glob.glob(os.path.join("trained-models", "*.pt"))
-        model_names = [os.path.basename(f) for f in model_files]
-        model_choice = st.selectbox("Select Model for Batch Processing", model_names)
-        
-        if st.button("🚀 Start Batch Processing", type="primary"):
-            # Initialize model once
-            device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-            model = Model(2).to(device)
-            model_path = os.path.join("trained-models", model_choice)
-            model.load_state_dict(torch.load(model_path, map_location=device))
-            
-            # Preprocessing setup
-            im_size = 224
-            mean = [0.485, 0.456, 0.406]
-            std = [0.229, 0.224, 0.225]
-            transforms_compose = transforms.Compose([
-                transforms.ToPILImage(),
-                transforms.Resize((im_size, im_size)),
-                transforms.ToTensor(),
-                transforms.Normalize(mean, std)
-            ])
-            
-            # Process each file
-            results = []
-            progress_bar = st.progress(0)
-            status_text = st.empty()
-            
-            for i, uploaded_file in enumerate(uploaded_files):
-                status_text.text(f"Processing {uploaded_file.name} ({i+1}/{len(uploaded_files)})")
-                
-                try:
-                    # Save file temporarily
-                    with tempfile.NamedTemporaryFile(delete=False, suffix=".mp4") as tmpfile:
-                        tmpfile.write(uploaded_file.read())
-                        video_path = tmpfile.name
-                    
-                    # Process video
-                    dataset = AdvancedValidationDataset(
-                        video_path, 
-                        sequence_length=30, 
-                        transform=transforms_compose,
-                        face_detection=True
-                    )
-                    
-                    frames, frame_metadata = dataset[0]
-                    prediction_results = advanced_predict(model, frames, device)
-                    
-                    # Store results
-                    result = {
-                        'filename': uploaded_file.name,
-                        'prediction': 'REAL' if prediction_results['prediction'] == 1 else 'FAKE',
-                        'confidence': prediction_results['confidence'],
-                        'entropy': prediction_results['entropy'],
-                        'frames_analyzed': len(frame_metadata),
-                        'faces_detected': sum(1 for m in frame_metadata if m['face_detected'])
-                    }
-                    results.append(result)
-                    
-                    # Clean up
-                    os.unlink(video_path)
-                    
-                except Exception as e:
-                    results.append({
-                        'filename': uploaded_file.name,
-                        'prediction': 'ERROR',
-                        'confidence': 0,
-                        'error': str(e)
-                    })
-                
-                progress_bar.progress((i + 1) / len(uploaded_files))
-            
-            status_text.text("Batch processing complete!")
-            
-            # Display results
-            st.subheader("📊 Batch Processing Results")
-            
-            # Batch Analysis Summary
-            st.markdown("""
-            ### 📋 Batch Analysis Summary
-            This section provides a comprehensive overview of the batch processing results for **{} videos**.
-            Each video was analyzed using the **{}** model with consistent parameters.
-            """.format(len(results), model_choice))
-            
-            # Summary statistics with explanations
-            col1, col2, col3, col4 = st.columns(4)
-            
-            with col1:
-                st.metric("Total Files", len(results))
-                st.caption("Total videos processed in this batch")
-            
-            with col2:
-                real_count = len([r for r in results if r['prediction'] == 'REAL'])
-                st.metric("Real Videos", real_count)
-                st.caption("Videos classified as authentic")
-            
-            with col3:
-                fake_count = len([r for r in results if r['prediction'] == 'FAKE'])
-                st.metric("Fake Videos", fake_count)
-                st.caption("Videos classified as deepfakes")
-            
-            with col4:
-                avg_confidence = np.mean([r['confidence'] for r in results if 'confidence' in r])
-                st.metric("Avg Confidence", f"{avg_confidence:.1f}%")
-                st.caption("Average confidence across all predictions")
-            
-            # Detailed Results Table with Explanation
-            st.markdown("""
-            ### 📊 Detailed Results Table
-            Below is a detailed breakdown of each video's analysis results:
-            
-            **Column Explanations:**
-            - **Filename**: Name of the processed video file
-            - **Prediction**: Classification result (REAL/FAKE/ERROR)
-            - **Confidence**: Model's confidence level (0-100%)
-            - **Entropy**: Uncertainty measure (lower = more certain)
-            - **Frames Analyzed**: Number of video frames processed
-            - **Faces Detected**: Number of frames with detected faces
-            """)
-            
-            # Create results dataframe
-            df = pd.DataFrame(results)
-            st.dataframe(df, use_container_width=True)
-            
-            # Quality Analysis
-            st.markdown("""
-            ### 🔍 Quality Analysis
-            
-            **Processing Quality Metrics:**
-            - **Success Rate**: {:.1f}% (videos processed successfully)
-            - **Average Frames**: {:.0f} frames per video
-            - **Face Detection Rate**: {:.1f}% (frames with detected faces)
-            - **Error Rate**: {:.1f}% (videos that failed to process)
-            
-            **Confidence Distribution:**
-            - **High Confidence (>70%)**: {} videos
-            - **Medium Confidence (30-70%)**: {} videos  
-            - **Low Confidence (<30%)**: {} videos
-            """.format(
-                (len([r for r in results if r['prediction'] != 'ERROR']) / len(results)) * 100,
-                np.mean([r.get('frames_analyzed', 0) for r in results if r['prediction'] != 'ERROR']),
-                np.mean([r.get('faces_detected', 0) / max(r.get('frames_analyzed', 1), 1) * 100 for r in results if r['prediction'] != 'ERROR']),
-                (len([r for r in results if r['prediction'] == 'ERROR']) / len(results)) * 100,
-                len([r for r in results if r.get('confidence', 0) > 70]),
-                len([r for r in results if 30 <= r.get('confidence', 0) <= 70]),
-                len([r for r in results if r.get('confidence', 0) < 30])
-            ))
-            
-            # Recommendations
-            st.markdown("""
-            ### 💡 Recommendations
-            
-            **For High-Confidence Results (>70%):**
-            - ✅ Results are highly reliable
-            - ✅ No additional verification needed
-            - ✅ Can be used for decision-making
-            
-            **For Medium-Confidence Results (30-70%):**
-            - ⚠️ Consider manual review
-            - ⚠️ May need additional analysis
-            - ⚠️ Check video quality and face detection
-            
-            **For Low-Confidence Results (<30%):**
-            - ❌ Results may be unreliable
-            - ❌ Consider re-analyzing with different parameters
-            - ❌ Check for video quality issues
-            
-            **For Error Results:**
-            - 🔧 Video may be corrupted or incompatible
-            - 🔧 Try with different video format
-            - 🔧 Check file size and duration
-            """)
-            
-            # Download results
-            csv_data = df.to_csv(index=False)
-            st.download_button(
-                label="📥 Download Results (CSV)",
-                data=csv_data,
-                file_name=f"batch_results_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
-                mime="text/csv"
-            )
+
 
 def show_analytics_dashboard():
     st.title("📊 Analytics Dashboard")
