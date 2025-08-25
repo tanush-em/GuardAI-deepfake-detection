@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Startup script for GuardAI Deepfake Detection Application
 """
