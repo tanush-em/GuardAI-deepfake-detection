@@ -516,7 +516,7 @@ def main():
         show_settings_page()
 
 def show_home_page():
-    st.markdown('<div class="main-header"><h1>🛡️ GuardAI Advanced Deepfake Detection</h1><p>State-of-the-art AI-powered deepfake detection with comprehensive analysis</p></div>', unsafe_allow_html=True)
+    st.markdown('<div class="main-header"><h1>🛡️ GuardAI Deepfake Detection</h1><p>Advanced AI-powered deepfake detection</p></div>', unsafe_allow_html=True)
     
     # Key metrics
     col1, col2, col3, col4 = st.columns(4)
@@ -534,52 +534,40 @@ def show_home_page():
         st.markdown('<div class="metric-card"><h3>🛡️ Security</h3><h2>99.8%</h2><p>False Positive Rate</p></div>', unsafe_allow_html=True)
     
     # Features overview
-    st.markdown("## 🚀 Advanced Features")
+    st.markdown("## 🚀 Features")
     
     col1, col2 = st.columns(2)
     
     with col1:
-        st.markdown('<div class="feature-card"><h4>🎥 Real-time Analysis</h4><p>Process videos in real-time with live confidence updates and frame-by-frame analysis</p></div>', unsafe_allow_html=True)
-        
-        st.markdown('<div class="feature-card"><h4>📊 Advanced Analytics</h4><p>Comprehensive visualizations including attention maps, frame analysis, and confidence distributions</p></div>', unsafe_allow_html=True)
-        
-
+        st.markdown('<div class="feature-card"><h4>🎥 Real-time Analysis</h4><p>Live confidence updates and frame-by-frame analysis</p></div>', unsafe_allow_html=True)
+        st.markdown('<div class="feature-card"><h4>📊 Advanced Analytics</h4><p>Attention maps, frame analysis, and confidence distributions</p></div>', unsafe_allow_html=True)
+        st.markdown('<div class="feature-card"><h4>📋 Detailed Reports</h4><p>PDF reports with analysis results and visualizations</p></div>', unsafe_allow_html=True)
     
     with col2:
-        st.markdown('<div class="feature-card"><h4>📋 Detailed Reports</h4><p>Generate comprehensive PDF reports with analysis results, visualizations, and recommendations</p></div>', unsafe_allow_html=True)
-        
-        st.markdown('<div class="feature-card"><h4>🔧 Model Management</h4><p>Compare multiple models, fine-tune parameters, and track performance metrics</p></div>', unsafe_allow_html=True)
-        
-        st.markdown('<div class="feature-card"><h4>🔍 Fake Region Annotator</h4><p>Advanced forensics tool that identifies and highlights specific facial regions showing signs of deepfake manipulation</p></div>', unsafe_allow_html=True)
-        
-        st.markdown('<div class="feature-card"><h4>🛡️ Security Features</h4><p>Advanced security measures including encryption, audit trails, and secure model deployment</p></div>', unsafe_allow_html=True)
+        st.markdown('<div class="feature-card"><h4>🔧 Model Management</h4><p>Compare models and track performance metrics</p></div>', unsafe_allow_html=True)
+        st.markdown('<div class="feature-card"><h4>🔍 Fake Region Annotator</h4><p>Forensics tool for facial region analysis</p></div>', unsafe_allow_html=True)
+        st.markdown('<div class="feature-card"><h4>🛡️ Security Features</h4><p>Encryption, audit trails, and secure deployment</p></div>', unsafe_allow_html=True)
     
     # How it works section
-    st.markdown("## 🔬 How GuardAI Works")
+    st.markdown("## 🔬 How It Works")
     
     st.markdown("""
-    ### 📋 Understanding Deepfake Detection
+    **Detection Process:**
+    1. **Frame Extraction**: Analyzes multiple frames
+    2. **Face Detection**: Focuses on facial regions
+    3. **Feature Analysis**: Examines patterns and artifacts
+    4. **Temporal Analysis**: Studies feature changes over time
+    5. **AI Classification**: Neural networks classify Real/Fake
     
-    **What are Deepfakes?**
-    Deepfakes are AI-generated videos that manipulate or replace faces in videos to create realistic but fake content. 
-    They can be used for entertainment, but also pose risks for misinformation and fraud.
-    
-    **How GuardAI Detects Deepfakes:**
-    1. **Frame Extraction**: Analyzes multiple frames from your video
-    2. **Face Detection**: Identifies and focuses on facial regions
-    3. **Feature Analysis**: Examines subtle patterns and artifacts
-    4. **Temporal Analysis**: Studies how features change over time
-    5. **AI Classification**: Uses advanced neural networks to classify as Real or Fake
-    
-    **Key Detection Methods:**
-    - **Facial Artifacts**: Detects unnatural patterns around eyes, mouth, and face edges
-    - **Lighting Inconsistencies**: Identifies artificial lighting patterns
-    - **Temporal Inconsistencies**: Finds unnatural movements and transitions
-    - **Compression Artifacts**: Spots telltale signs of AI generation
+    **Detection Methods:**
+    - Facial artifacts around eyes, mouth, and face edges
+    - Lighting inconsistencies and artificial patterns
+    - Temporal inconsistencies and unnatural movements
+    - Compression artifacts from AI generation
     """)
     
     # Understanding Results section
-    st.markdown("## 📊 Understanding Your Results")
+    st.markdown("## 📊 Understanding Results")
     
     col1, col2 = st.columns(2)
     
@@ -587,71 +575,37 @@ def show_home_page():
         st.markdown("""
         ### 🎯 Confidence Levels
         
-        **High Confidence (70-100%)**
-        - ✅ Very reliable prediction
-        - ✅ Clear indicators detected
-        - ✅ Can be trusted for decision-making
-        
-        **Medium Confidence (30-70%)**
-        - ⚠️ Moderate reliability
-        - ⚠️ May need additional verification
-        - ⚠️ Consider manual review
-        
-        **Low Confidence (0-30%)**
-        - ❌ Unreliable prediction
-        - ❌ Insufficient evidence
-        - ❌ Consider re-analyzing
+        **High (70-100%)**: Very reliable prediction
+        **Medium (30-70%)**: Moderate reliability, may need verification
+        **Low (0-30%)**: Unreliable, consider re-analyzing
         """)
     
     with col2:
         st.markdown("""
-        ### 📈 Analysis Metrics
+        ### 📈 Key Metrics
         
-        **Confidence Score**
-        - How certain the AI is about its prediction
-        - Higher = more reliable
-        
-        **Entropy Score**
-        - Measures prediction uncertainty
-        - Lower = more confident
-        
-        **Frame Analysis**
-        - Shows video characteristics over time
-        - Helps identify manipulation patterns
-        
-        **Feature Maps**
-        - Visualizes what the AI focuses on
-        - Reveals detection patterns
+        **Confidence Score**: How certain the AI is (higher = more reliable)
+        **Entropy Score**: Measures uncertainty (lower = more confident)
+        **Frame Analysis**: Video characteristics over time
+        **Feature Maps**: Shows what the AI focuses on
         """)
     
     # Best Practices section
-    st.markdown("## 💡 Best Practices for Analysis")
+    st.markdown("## 💡 Best Practices")
     
     st.markdown("""
-    ### 🎥 Video Quality Guidelines
+    **Optimal Video:**
+    - Resolution: 720p or higher
+    - Duration: 5-30 seconds
+    - Good lighting and clear facial features
+    - Minimal camera movement
+    - Formats: MP4, AVI, MOV, MKV
     
-    **Optimal Video Characteristics:**
-    - **Resolution**: 720p or higher for best results
-    - **Duration**: 5-30 seconds for optimal analysis
-    - **Lighting**: Well-lit, clear facial visibility
-    - **Stability**: Minimal camera movement
-    - **Format**: MP4, AVI, MOV, or MKV
-    
-    **What to Avoid:**
-    - ❌ Very low resolution videos (<480p)
-    - ❌ Extremely short clips (<2 seconds)
-    - ❌ Poor lighting or heavy shadows
-    - ❌ Excessive motion blur
-    - ❌ Multiple faces in frame (analyzes primary face)
-    
-    ### 🔍 Analysis Tips
-    
-    **For Best Results:**
-    1. **Use high-quality videos** with clear facial features
-    2. **Ensure good lighting** for consistent analysis
-    3. **Choose appropriate models** based on your use case
-    4. **Review confidence levels** before making decisions
-    5. **Download reports** for detailed documentation
+    **Avoid:**
+    - Low resolution (<480p)
+    - Very short clips (<2 seconds)
+    - Poor lighting or heavy shadows
+    - Excessive motion blur
     """)
 
 def show_single_analysis():
@@ -660,51 +614,35 @@ def show_single_analysis():
     # Model selection with advanced options
     st.subheader("Model Configuration")
     
-    st.markdown("""
-    ### ⚙️ Analysis Parameters
-    
-    **Model Selection**: Choose the AI model that best fits your analysis needs. Different models are trained on different datasets and may perform better for specific types of videos.
-    
-    **Analysis Settings**: Configure how the system processes your video for optimal results.
-    """)
-    
     col1, col2 = st.columns(2)
     
     with col1:
         model_files = glob.glob(os.path.join("trained-models", "*.pt"))
         model_names = [os.path.basename(f) for f in model_files]
-        model_choice = st.selectbox("Select Model", model_names, help="Choose the AI model for analysis. Models with higher accuracy percentages generally provide more reliable results.")
+        model_choice = st.selectbox("Select Model", model_names, help="Choose AI model for analysis")
         
-        sequence_length = st.slider("Sequence Length", 10, 50, 30, help="Number of frames to analyze. Higher values provide more comprehensive analysis but take longer to process.")
+        sequence_length = st.slider("Sequence Length", 10, 50, 30, help="Number of frames to analyze")
         
     with col2:
-        face_detection = st.checkbox("Enable Face Detection", value=True, help="Automatically detect and crop faces in each frame. This improves accuracy by focusing analysis on facial regions.")
-        confidence_threshold = st.slider("Confidence Threshold", 0.0, 1.0, 0.7, 0.05, help="Minimum confidence level required for a reliable prediction. Higher thresholds are more strict but may miss some detections.")
+        face_detection = st.checkbox("Enable Face Detection", value=True, help="Detect and crop faces for better accuracy")
+        confidence_threshold = st.slider("Confidence Threshold", 0.0, 1.0, 0.7, 0.05, help="Minimum confidence for reliable prediction")
     
     # Parameter explanations
     st.markdown("""
-    ### 📋 Parameter Explanations
-    
     **Model Types:**
-    - **High Accuracy Models (90%+)**: Best for critical applications, slower processing
-    - **Balanced Models (80-90%)**: Good accuracy with reasonable speed
-    - **Fast Models (<80%)**: Quick analysis, suitable for preliminary screening
+    - **High Accuracy (90%+)**: Best for critical applications
+    - **Balanced (80-90%)**: Good accuracy with reasonable speed
+    - **Fast (<80%)**: Quick analysis for preliminary screening
     
-    **Sequence Length Impact:**
-    - **10-20 frames**: Fast analysis, good for short videos
-    - **20-30 frames**: Balanced speed and accuracy (recommended)
-    - **30-50 frames**: Maximum accuracy, best for detailed analysis
+    **Sequence Length:**
+    - **10-20 frames**: Fast analysis
+    - **20-30 frames**: Balanced (recommended)
+    - **30-50 frames**: Maximum accuracy
     
-    **Face Detection Benefits:**
-    - ✅ Improves accuracy by focusing on relevant areas
-    - ✅ Reduces false positives from background elements
-    - ✅ Handles videos with multiple people (analyzes primary face)
-    - ⚠️ May fail if faces are not clearly visible
-    
-    **Confidence Threshold Guidelines:**
-    - **0.5-0.6**: More sensitive, catches more potential deepfakes
-    - **0.7-0.8**: Balanced approach (recommended)
-    - **0.8-0.9**: Very strict, only high-confidence detections
+    **Confidence Threshold:**
+    - **0.5-0.6**: More sensitive
+    - **0.7-0.8**: Balanced (recommended)
+    - **0.8-0.9**: Very strict
     """)
     
     # Video upload with preview
@@ -780,17 +718,13 @@ def show_single_analysis():
                     plots = create_visualization_plots(prediction_results, frame_metadata)
                     
                     # Fake Region Annotator Analysis
-                    st.subheader("🔍 Fake Region Annotator Analysis")
+                    st.subheader("🔍 Fake Region Analysis")
                     
                     # Check if fake probability is high enough for region analysis
                     fake_probability = 1 - (prediction_results['probabilities'][0][1])  # Probability of being fake
                     
                     if fake_probability > 0.3:  # Only analyze regions if there's significant fake probability
-                        st.markdown("""
-                        ### 🎯 Fake Region Detection
-                        The system has detected potential manipulation in specific facial regions. 
-                        This analysis uses advanced computer vision techniques to identify suspicious areas.
-                        """)
+                        st.markdown("**Potential manipulation detected in facial regions**")
                         
                         # Get a representative frame for analysis
                         cap = cv2.VideoCapture(video_path)
@@ -838,16 +772,16 @@ def show_single_analysis():
                                 annotated_frame = draw_fake_region_annotations(frame, fake_regions, show_landmarks=True, show_confidence=True)
                                 
                                 # Display annotated frame
-                                st.markdown("### 📸 Annotated Frame with Fake Regions")
+                                st.markdown("### 📸 Annotated Frame")
                                 st.markdown("""
-                                **Color-coded regions indicate potential manipulation:**
-                                - 🔴 **Red**: Eyes Region (high suspicion)
-                                - 🟢 **Green**: Nose Region (moderate suspicion)
-                                - 🔵 **Blue**: Mouth Region (moderate suspicion)
-                                - 🟡 **Yellow**: Face Boundary (very high suspicion)
-                                - 🟣 **Magenta**: Cheek Region (low suspicion)
+                                **Color-coded regions:**
+                                - 🔴 Red: Eyes (high suspicion)
+                                - 🟢 Green: Nose (moderate)
+                                - 🔵 Blue: Mouth (moderate)
+                                - 🟡 Yellow: Face Boundary (very high)
+                                - 🟣 Magenta: Cheeks (low)
                                 
-                                **White dots** show individual facial landmarks used for analysis.
+                                White dots show facial landmarks.
                                 """)
                                 
                                 # Convert BGR to RGB for display
@@ -857,11 +791,8 @@ def show_single_analysis():
                                 # Create and display fake region heatmap
                                 heatmap = create_fake_region_heatmap(frame, fake_regions)
                                 if heatmap.max() > 0:
-                                    st.markdown("### 🔥 Fake Region Heatmap")
-                                    st.markdown("""
-                                    This heatmap shows the concentration of suspicious regions. 
-                                    **Brighter areas** indicate higher suspicion of manipulation.
-                                    """)
+                                    st.markdown("### 🔥 Region Heatmap")
+                                    st.markdown("**Brighter areas indicate higher suspicion of manipulation**")
                                     fig_heatmap = px.imshow(heatmap, 
                                                           title='Fake Region Concentration Heatmap',
                                                           color_continuous_scale='Reds',
@@ -873,20 +804,14 @@ def show_single_analysis():
                                 
                                 # Display region suspicion chart
                                 if 'region_suspicion' in fake_region_plots:
-                                    st.markdown("### 📊 Region Suspicion Analysis")
-                                    st.markdown("""
-                                    This chart shows the suspicion scores for each detected region.
-                                    **Higher bars** indicate regions with stronger evidence of manipulation.
-                                    """)
+                                    st.markdown("### 📊 Region Suspicion")
+                                    st.markdown("**Higher bars indicate stronger evidence of manipulation**")
                                     st.plotly_chart(fake_region_plots['region_suspicion'], use_container_width=True)
                                 
                                 # Display artifact radar chart
                                 if 'artifact_radar' in fake_region_plots:
-                                    st.markdown("### 🎯 Artifact Analysis Radar")
-                                    st.markdown("""
-                                    This radar chart shows different types of artifacts detected.
-                                    **Larger areas** indicate more artifacts of that type.
-                                    """)
+                                    st.markdown("### 🎯 Artifact Analysis")
+                                    st.markdown("**Larger areas indicate more artifacts of that type**")
                                     st.plotly_chart(fake_region_plots['artifact_radar'], use_container_width=True)
                                 
                                 # Display recommendations
@@ -931,26 +856,20 @@ def show_single_analysis():
                         st.metric("Entropy", f"{prediction_results['entropy']:.3f}")
                     
                     # Detailed analysis
-                    st.subheader("📊 Detailed Analysis")
+                    st.subheader("📊 Analysis Results")
                     
                     # Analysis Summary
-                    st.markdown("""
-                    ### 📋 Analysis Summary
-                    This section provides a comprehensive breakdown of the deepfake detection analysis. 
-                    The model analyzed **{} frames** from your video and detected **{} faces**.
-                    """.format(len(frame_metadata), sum(1 for m in frame_metadata if m['face_detected'])))
+                    st.markdown("**Analysis Summary**: {} frames analyzed, {} faces detected".format(
+                        len(frame_metadata), sum(1 for m in frame_metadata if m['face_detected'])
+                    ))
                     
                     # Prediction Explanation
                     st.markdown("""
-                    ### 🎯 Prediction Results
-                    **Result**: {}  
-                    **Confidence**: {:.2f}%  
-                    **Entropy**: {:.3f}
+                    **Result**: {} | **Confidence**: {:.2f}% | **Entropy**: {:.3f}
                     
-                    **What this means:**
-                    - **Confidence**: How certain the model is about its prediction (higher = more certain)
-                    - **Entropy**: Measures prediction uncertainty (lower = more confident, higher = more uncertain)
-                    - **Threshold**: Results above 70% confidence are considered highly reliable
+                    **Confidence**: How certain the model is (higher = more certain)
+                    **Entropy**: Measures uncertainty (lower = more confident)
+                    **Threshold**: Results above 70% confidence are highly reliable
                     """.format(
                         "REAL" if prediction_results['prediction'] == 1 else "FAKE",
                         prediction_results['confidence'],
@@ -958,77 +877,26 @@ def show_single_analysis():
                     ))
                     
                     # Confidence gauge with explanation
-                    st.markdown("""
-                    ### 📊 Confidence Gauge
-                    This gauge shows the model's confidence level in its prediction. The color coding indicates:
-                    - **🟢 Green (70-100%)**: High confidence, reliable prediction
-                    - **🟡 Yellow (30-70%)**: Moderate confidence, consider additional verification
-                    - **🔴 Red (0-30%)**: Low confidence, prediction may be unreliable
-                    """)
+                    st.markdown("**Confidence Gauge**: Green (70-100%) = High, Yellow (30-70%) = Moderate, Red (0-30%) = Low")
                     st.plotly_chart(plots['confidence_gauge'], use_container_width=True)
                     
                     # Frame analysis with explanation
                     if 'frame_analysis' in plots:
-                        st.markdown("""
-                        ### 📈 Frame Analysis Over Time
-                        This graph shows how video characteristics change throughout the analysis:
-                        
-                        **Blue Line (Brightness)**: Shows lighting consistency across frames
-                        - **Stable line**: Natural video with consistent lighting
-                        - **Spikes/variations**: May indicate artificial modifications
-                        
-                        **Red Line (Contrast)**: Shows contrast variations
-                        - **Consistent contrast**: Natural video characteristics
-                        - **Unusual patterns**: Could indicate deepfake artifacts
-                        
-                        **What to look for:**
-                        - Sudden changes in brightness/contrast
-                        - Unnatural patterns or spikes
-                        - Inconsistencies that might indicate manipulation
-                        """)
+                        st.markdown("**Frame Analysis**: Blue line = brightness, Red line = contrast. Look for sudden changes or unnatural patterns.")
                         st.plotly_chart(plots['frame_analysis'], use_container_width=True)
                     
                     # Feature map visualization with explanation
                     if 'feature_map' in plots:
-                        st.markdown("""
-                        ### 🔍 Feature Map Visualization
-                        This heatmap shows what the AI model "sees" when analyzing the video:
-                        
-                        **What this represents:**
-                        - **Bright areas**: Features the model considers important for detection
-                        - **Dark areas**: Less important regions
-                        - **Patterns**: Shows which parts of the face/video the model focuses on
-                        
-                        **Deepfake indicators:**
-                        - **Unusual focus patterns**: May indicate artificial features
-                        - **Inconsistent attention**: Could suggest manipulation
-                        - **Edge artifacts**: Common in deepfake videos
-                        
-                        **Natural video characteristics:**
-                        - **Balanced attention**: Even focus across facial features
-                        - **Consistent patterns**: Natural feature distribution
-                        """)
+                        st.markdown("**Feature Map**: Bright areas = important features, dark areas = less important. Look for unusual focus patterns.")
                         st.plotly_chart(plots['feature_map'], use_container_width=True)
                     
                     # Technical Analysis
                     st.markdown("""
-                    ### 🔬 Technical Analysis Details
+                    **Model**: {} | **Architecture**: ResNeXt50 + LSTM | **Frames**: {} | **Face Detection**: {}
                     
-                    **Model Information:**
-                    - **Model Used**: {}
-                    - **Architecture**: ResNeXt50 + LSTM
-                    - **Frames Analyzed**: {}
-                    - **Face Detection**: {}
+                    **Parameters**: Sequence Length = {} frames | Resolution = 224x224 | Device = {}
                     
-                    **Analysis Parameters:**
-                    - **Sequence Length**: {} frames
-                    - **Image Resolution**: 224x224 pixels
-                    - **Processing Device**: {}
-                    
-                    **Quality Metrics:**
-                    - **Average Brightness**: {:.1f}
-                    - **Average Contrast**: {:.1f}
-                    - **Face Detection Rate**: {:.1f}%
+                    **Quality**: Avg Brightness = {:.1f} | Avg Contrast = {:.1f} | Face Detection Rate = {:.1f}%
                     """.format(
                         model_choice,
                         len(frame_metadata),
@@ -1042,25 +910,11 @@ def show_single_analysis():
                     
                     # Interpretation Guide
                     st.markdown("""
-                    ### 📖 How to Interpret These Results
+                    **REAL Videos**: High confidence (>70%) with low entropy, consistent patterns, natural feature distribution
                     
-                    **For REAL Videos:**
-                    - ✅ High confidence (>70%) with low entropy
-                    - ✅ Consistent brightness and contrast patterns
-                    - ✅ Natural feature map distribution
-                    - ✅ Stable frame analysis graphs
+                    **FAKE Videos**: Lower confidence or high entropy, unusual spikes, inconsistent patterns
                     
-                    **For FAKE Videos:**
-                    - ❌ May show lower confidence or high entropy
-                    - ❌ Unusual brightness/contrast spikes
-                    - ❌ Inconsistent feature map patterns
-                    - ❌ Irregular frame analysis patterns
-                    
-                    **Important Notes:**
-                    - **Confidence below 50%**: Consider the result inconclusive
-                    - **High entropy (>0.8)**: Model is uncertain, may need additional analysis
-                    - **No faces detected**: Analysis may be unreliable
-                    - **Multiple faces**: Results apply to the primary detected face
+                    **Notes**: Confidence <50% = inconclusive, High entropy (>0.8) = uncertain, No faces = unreliable
                     """)
                     
                     # Generate report
