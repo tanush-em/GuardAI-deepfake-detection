@@ -1,0 +1,312 @@
+Error in Unhandled Exception: 415 Unsupported Media Type: Did not attempt to load JSON data because the request Content-Type was not 'application/json'.
+Traceback (most recent call last):
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/flask/app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/flask/app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+  File "/Users/tanush/Documents/repos/AIDE/backend/app.py", line 29, in log_request
+    log_request_info(request, logger)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/utils/logging_config.py", line 78, in log_request_info
+    if request.json:
+       ^^^^^^^^^^^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/werkzeug/wrappers/request.py", line 560, in json
+    return self.get_json()
+           ~~~~~~~~~~~~~^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/werkzeug/wrappers/request.py", line 604, in get_json
+    return self.on_json_loading_failed(None)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/flask/wrappers.py", line 214, in on_json_loading_failed
+    return super().on_json_loading_failed(e)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/werkzeug/wrappers/request.py", line 647, in on_json_loading_failed
+    raise UnsupportedMediaType(
+    ...<2 lines>...
+    )
+werkzeug.exceptions.UnsupportedMediaType: 415 Unsupported Media Type: Did not attempt to load JSON data because the request Content-Type was not 'application/json'.
+Error in Unhandled Exception: 415 Unsupported Media Type: Did not attempt to load JSON data because the request Content-Type was not 'application/json'.
+Traceback (most recent call last):
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/flask/app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/flask/app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+  File "/Users/tanush/Documents/repos/AIDE/backend/app.py", line 29, in log_request
+    log_request_info(request, logger)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/utils/logging_config.py", line 78, in log_request_info
+    if request.json:
+       ^^^^^^^^^^^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/werkzeug/wrappers/request.py", line 560, in json
+    return self.get_json()
+           ~~~~~~~~~~~~~^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/werkzeug/wrappers/request.py", line 604, in get_json
+    return self.on_json_loading_failed(None)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/flask/wrappers.py", line 214, in on_json_loading_failed
+    return super().on_json_loading_failed(e)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/werkzeug/wrappers/request.py", line 647, in on_json_loading_failed
+    raise UnsupportedMediaType(
+    ...<2 lines>...
+    )
+werkzeug.exceptions.UnsupportedMediaType: 415 Unsupported Media Type: Did not attempt to load JSON data because the request Content-Type was not 'application/json'.
+Error in Unhandled Exception: 415 Unsupported Media Type: Did not attempt to load JSON data because the request Content-Type was not 'application/json'.
+Traceback (most recent call last):
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/flask/app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/flask/app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+  File "/Users/tanush/Documents/repos/AIDE/backend/app.py", line 29, in log_request
+    log_request_info(request, logger)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/utils/logging_config.py", line 78, in log_request_info
+    if request.json:
+       ^^^^^^^^^^^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/werkzeug/wrappers/request.py", line 560, in json
+    return self.get_json()
+           ~~~~~~~~~~~~~^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/werkzeug/wrappers/request.py", line 604, in get_json
+    return self.on_json_loading_failed(None)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/flask/wrappers.py", line 214, in on_json_loading_failed
+    return super().on_json_loading_failed(e)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/werkzeug/wrappers/request.py", line 647, in on_json_loading_failed
+    raise UnsupportedMediaType(
+    ...<2 lines>...
+    )
+werkzeug.exceptions.UnsupportedMediaType: 415 Unsupported Media Type: Did not attempt to load JSON data because the request Content-Type was not 'application/json'.
+Error in Unhandled Exception: 415 Unsupported Media Type: Did not attempt to load JSON data because the request Content-Type was not 'application/json'.
+Traceback (most recent call last):
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/flask/app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/flask/app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+  File "/Users/tanush/Documents/repos/AIDE/backend/app.py", line 29, in log_request
+    log_request_info(request, logger)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/utils/logging_config.py", line 78, in log_request_info
+    if request.json:
+       ^^^^^^^^^^^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/werkzeug/wrappers/request.py", line 560, in json
+    return self.get_json()
+           ~~~~~~~~~~~~~^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/werkzeug/wrappers/request.py", line 604, in get_json
+    return self.on_json_loading_failed(None)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/flask/wrappers.py", line 214, in on_json_loading_failed
+    return super().on_json_loading_failed(e)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/werkzeug/wrappers/request.py", line 647, in on_json_loading_failed
+    raise UnsupportedMediaType(
+    ...<2 lines>...
+    )
+werkzeug.exceptions.UnsupportedMediaType: 415 Unsupported Media Type: Did not attempt to load JSON data because the request Content-Type was not 'application/json'.
+Error in Unhandled Exception: 415 Unsupported Media Type: Did not attempt to load JSON data because the request Content-Type was not 'application/json'.
+Traceback (most recent call last):
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/flask/app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/flask/app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+  File "/Users/tanush/Documents/repos/AIDE/backend/app.py", line 29, in log_request
+    log_request_info(request, logger)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/utils/logging_config.py", line 78, in log_request_info
+    if request.json:
+       ^^^^^^^^^^^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/werkzeug/wrappers/request.py", line 560, in json
+    return self.get_json()
+           ~~~~~~~~~~~~~^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/werkzeug/wrappers/request.py", line 604, in get_json
+    return self.on_json_loading_failed(None)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/flask/wrappers.py", line 214, in on_json_loading_failed
+    return super().on_json_loading_failed(e)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/werkzeug/wrappers/request.py", line 647, in on_json_loading_failed
+    raise UnsupportedMediaType(
+    ...<2 lines>...
+    )
+werkzeug.exceptions.UnsupportedMediaType: 415 Unsupported Media Type: Did not attempt to load JSON data because the request Content-Type was not 'application/json'.
+Error in Unhandled Exception: 415 Unsupported Media Type: Did not attempt to load JSON data because the request Content-Type was not 'application/json'.
+Traceback (most recent call last):
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/flask/app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/flask/app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+  File "/Users/tanush/Documents/repos/AIDE/backend/app.py", line 29, in log_request
+    log_request_info(request, logger)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/utils/logging_config.py", line 78, in log_request_info
+    if request.json:
+       ^^^^^^^^^^^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/werkzeug/wrappers/request.py", line 560, in json
+    return self.get_json()
+           ~~~~~~~~~~~~~^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/werkzeug/wrappers/request.py", line 604, in get_json
+    return self.on_json_loading_failed(None)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/flask/wrappers.py", line 214, in on_json_loading_failed
+    return super().on_json_loading_failed(e)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/werkzeug/wrappers/request.py", line 647, in on_json_loading_failed
+    raise UnsupportedMediaType(
+    ...<2 lines>...
+    )
+werkzeug.exceptions.UnsupportedMediaType: 415 Unsupported Media Type: Did not attempt to load JSON data because the request Content-Type was not 'application/json'.
+Error in Unhandled Exception: 415 Unsupported Media Type: Did not attempt to load JSON data because the request Content-Type was not 'application/json'.
+Traceback (most recent call last):
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/flask/app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/flask/app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+  File "/Users/tanush/Documents/repos/AIDE/backend/app.py", line 29, in log_request
+    log_request_info(request, logger)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/utils/logging_config.py", line 78, in log_request_info
+    if request.json:
+       ^^^^^^^^^^^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/werkzeug/wrappers/request.py", line 560, in json
+    return self.get_json()
+           ~~~~~~~~~~~~~^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/werkzeug/wrappers/request.py", line 604, in get_json
+    return self.on_json_loading_failed(None)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/flask/wrappers.py", line 214, in on_json_loading_failed
+    return super().on_json_loading_failed(e)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/werkzeug/wrappers/request.py", line 647, in on_json_loading_failed
+    raise UnsupportedMediaType(
+    ...<2 lines>...
+    )
+werkzeug.exceptions.UnsupportedMediaType: 415 Unsupported Media Type: Did not attempt to load JSON data because the request Content-Type was not 'application/json'.
+Error in Unhandled Exception: 415 Unsupported Media Type: Did not attempt to load JSON data because the request Content-Type was not 'application/json'.
+Traceback (most recent call last):
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/flask/app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/flask/app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+  File "/Users/tanush/Documents/repos/AIDE/backend/app.py", line 29, in log_request
+    log_request_info(request, logger)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/utils/logging_config.py", line 78, in log_request_info
+    if request.json:
+       ^^^^^^^^^^^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/werkzeug/wrappers/request.py", line 560, in json
+    return self.get_json()
+           ~~~~~~~~~~~~~^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/werkzeug/wrappers/request.py", line 604, in get_json
+    return self.on_json_loading_failed(None)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/flask/wrappers.py", line 214, in on_json_loading_failed
+    return super().on_json_loading_failed(e)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/werkzeug/wrappers/request.py", line 647, in on_json_loading_failed
+    raise UnsupportedMediaType(
+    ...<2 lines>...
+    )
+werkzeug.exceptions.UnsupportedMediaType: 415 Unsupported Media Type: Did not attempt to load JSON data because the request Content-Type was not 'application/json'.
+Error in Unhandled Exception: 415 Unsupported Media Type: Did not attempt to load JSON data because the request Content-Type was not 'application/json'.
+Traceback (most recent call last):
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/flask/app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/flask/app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+  File "/Users/tanush/Documents/repos/AIDE/backend/app.py", line 29, in log_request
+    log_request_info(request, logger)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/utils/logging_config.py", line 78, in log_request_info
+    if request.json:
+       ^^^^^^^^^^^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/werkzeug/wrappers/request.py", line 560, in json
+    return self.get_json()
+           ~~~~~~~~~~~~~^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/werkzeug/wrappers/request.py", line 604, in get_json
+    return self.on_json_loading_failed(None)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/flask/wrappers.py", line 214, in on_json_loading_failed
+    return super().on_json_loading_failed(e)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/werkzeug/wrappers/request.py", line 647, in on_json_loading_failed
+    raise UnsupportedMediaType(
+    ...<2 lines>...
+    )
+werkzeug.exceptions.UnsupportedMediaType: 415 Unsupported Media Type: Did not attempt to load JSON data because the request Content-Type was not 'application/json'.
+Error in Unhandled Exception: 415 Unsupported Media Type: Did not attempt to load JSON data because the request Content-Type was not 'application/json'.
+Traceback (most recent call last):
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/flask/app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/flask/app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+  File "/Users/tanush/Documents/repos/AIDE/backend/app.py", line 29, in log_request
+    log_request_info(request, logger)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/utils/logging_config.py", line 78, in log_request_info
+    if request.json:
+       ^^^^^^^^^^^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/werkzeug/wrappers/request.py", line 560, in json
+    return self.get_json()
+           ~~~~~~~~~~~~~^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/werkzeug/wrappers/request.py", line 604, in get_json
+    return self.on_json_loading_failed(None)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/flask/wrappers.py", line 214, in on_json_loading_failed
+    return super().on_json_loading_failed(e)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/werkzeug/wrappers/request.py", line 647, in on_json_loading_failed
+    raise UnsupportedMediaType(
+    ...<2 lines>...
+    )
+werkzeug.exceptions.UnsupportedMediaType: 415 Unsupported Media Type: Did not attempt to load JSON data because the request Content-Type was not 'application/json'.
+Error in Unhandled Exception: 415 Unsupported Media Type: Did not attempt to load JSON data because the request Content-Type was not 'application/json'.
+Traceback (most recent call last):
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/flask/app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/flask/app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+  File "/Users/tanush/Documents/repos/AIDE/backend/app.py", line 29, in log_request
+    log_request_info(request, logger)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/utils/logging_config.py", line 78, in log_request_info
+    if request.json:
+       ^^^^^^^^^^^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/werkzeug/wrappers/request.py", line 560, in json
+    return self.get_json()
+           ~~~~~~~~~~~~~^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/werkzeug/wrappers/request.py", line 604, in get_json
+    return self.on_json_loading_failed(None)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/flask/wrappers.py", line 214, in on_json_loading_failed
+    return super().on_json_loading_failed(e)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/werkzeug/wrappers/request.py", line 647, in on_json_loading_failed
+    raise UnsupportedMediaType(
+    ...<2 lines>...
+    )
+werkzeug.exceptions.UnsupportedMediaType: 415 Unsupported Media Type: Did not attempt to load JSON data because the request Content-Type was not 'application/json'.
+Error in Unhandled Exception: 415 Unsupported Media Type: Did not attempt to load JSON data because the request Content-Type was not 'application/json'.
+Traceback (most recent call last):
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/flask/app.py", line 915, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/flask/app.py", line 1291, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+  File "/Users/tanush/Documents/repos/AIDE/backend/app.py", line 29, in log_request
+    log_request_info(request, logger)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/utils/logging_config.py", line 78, in log_request_info
+    if request.json:
+       ^^^^^^^^^^^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/werkzeug/wrappers/request.py", line 560, in json
+    return self.get_json()
+           ~~~~~~~~~~~~~^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/werkzeug/wrappers/request.py", line 604, in get_json
+    return self.on_json_loading_failed(None)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/flask/wrappers.py", line 214, in on_json_loading_failed
+    return super().on_json_loading_failed(e)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/Users/tanush/Documents/repos/AIDE/backend/venv/lib/python3.13/site-packages/werkzeug/wrappers/request.py", line 647, in on_json_loading_failed
+    raise UnsupportedMediaType(
+    ...<2 lines>...
+    )
+werkzeug.exceptions.UnsupportedMediaType: 415 Unsupported Media Type: Did not attempt to load JSON data because the request Content-Type was not 'application/json'.
