@@ -518,21 +518,6 @@ def main():
 def show_home_page():
     st.markdown('<div class="main-header"><h1>🛡️ GuardAI Deepfake Detection</h1><p>Advanced AI-powered deepfake detection</p></div>', unsafe_allow_html=True)
     
-    # Key metrics
-    col1, col2, col3, col4 = st.columns(4)
-    
-    with col1:
-        st.markdown('<div class="metric-card"><h3>🎯 Accuracy</h3><h2>94.2%</h2><p>Model Performance</p></div>', unsafe_allow_html=True)
-    
-    with col2:
-        st.markdown('<div class="metric-card"><h3>⚡ Speed</h3><h2>2.3s</h2><p>Avg Processing Time</p></div>', unsafe_allow_html=True)
-    
-    with col3:
-        st.markdown('<div class="metric-card"><h3>🔍 Detections</h3><h2>1,247</h2><p>Total Analyzed</p></div>', unsafe_allow_html=True)
-    
-    with col4:
-        st.markdown('<div class="metric-card"><h3>🛡️ Security</h3><h2>99.8%</h2><p>False Positive Rate</p></div>', unsafe_allow_html=True)
-    
     # Features overview
     st.markdown("## 🚀 Features")
     
